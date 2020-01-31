@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+dist/
+build/
+
+*.egg-info/
+
+.doit.db
+
+.vscode/settings.json
