@@ -26,17 +26,17 @@ class TitleGenerator:
     def __init__(self, title: List[str]):
         self.title = title
 
-    def __get_noise(self):
+    def _get_noise(self):
         return []
 
     def get_title(self, ext: str = 'mkv'):
-        noise = self.__get_noise()
+        noise = self._get_noise()
         random.shuffle(noise)
         return '.'.join(self.title + noise + [ext])
 
 
 class Movie(TitleGenerator):
-    def __get_noise(self):
+    def _get_noise(self):
         return [
             random.choice(format),
             random.choice(years)
@@ -49,7 +49,7 @@ class Episode(TitleGenerator):
         self.e = e
         super().__init__(title)
 
-    def __get_noise(self):
+    def _get_noise(self):
         return [
             random.choice(format),
             random.choice(years),

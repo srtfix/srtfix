@@ -34,3 +34,9 @@ def test_matching():
     ]
 
     assert qd == [(queries[0], docs[1]), (queries[1], docs[0])]
+
+
+def test_season_episode():
+    title = Episode(titles[0], s=1, e=2).get_title()
+    print(title)
+    assert season_episode(title) == (1, 2)
