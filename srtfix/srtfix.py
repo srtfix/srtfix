@@ -36,9 +36,17 @@ def get_vids(path: str):
 
 
 def rename(srts: List[str], vids: List[str]):
+    ms = matching(srts, vids, threshold=0.2)
+
+    dont_have = set(vids) - set(d for q, d, _ in ms)
+
+    print(colored('Couldn\'t find subtitles for the following`', 'yellow'))
+    for v in dont_have:
+        print(v)
+
     m = [
         (q, vid_2_srt(d))
-        for q, d, _ in matching(srts, vids, threshold=0.2)
+        for q, d, _ in ms
     ]
 
     m = [(q, d) for q, d in m if q != d]
